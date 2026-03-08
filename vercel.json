@@ -1,0 +1,23 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/api/auth/:path*", "destination": "/api/auth" },
+    { "source": "/api/employees/:path*", "destination": "/api/employees" },
+    { "source": "/api/finance/:path*", "destination": "/api/finance" },
+    { "source": "/api/inventory/:path*", "destination": "/api/inventory" },
+    { "source": "/api/services/:path*", "destination": "/api/services" },
+    { "source": "/api/vendors/:path*", "destination": "/api/vendors" },
+    { "source": "/api/sales/:path*", "destination": "/api/sales" },
+    { "source": "/api/dashboard/:path*", "destination": "/api/dashboard" },
+    { "source": "/api/settlement/:path*", "destination": "/api/settlement" },
+    { "source": "/api/incentives/:path*", "destination": "/api/incentives" },
+    { "source": "/api/blog-order-form/:path*", "destination": "/api/blog-order-form" },
+    { "source": "/api/rank-share/:path*", "destination": "/api/rank-share" },
+    { "source": "/api/blog-share/:path*", "destination": "/api/blog-share" },
+    { "source": "/api/blog/:path*", "destination": "/api/blog" },
+    { "source": "/api/inquiries/:path*", "destination": "/api/inquiries" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
+}
