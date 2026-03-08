@@ -26,24 +26,29 @@ export default function Login() {
   return (
     <div className="min-h-screen flex">
       {/* Left side - Branding */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#2c2419] via-[#2a2117] to-[#231d14] relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] relative overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
 
         {/* Gradient orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-400/20 rounded-full blur-3xl animate-pulse-slow delay-500" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl animate-pulse-slow delay-500" />
 
         <div className="relative z-10 flex flex-col justify-center px-16 text-white">
           <div className="mb-8">
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold tracking-[0.15em] text-primary-300">ABYSS</h1>
-              <p className="text-sm tracking-wide text-primary-400/60 font-medium mt-1">정산 ERP 시스템</p>
+            <div className="mb-10 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center shadow-lg shadow-primary-500/30">
+                <span className="text-lg font-black text-white">ML</span>
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-white">마케팅 라운지</h1>
+                <p className="text-sm tracking-wide text-slate-400 font-medium mt-0.5">통합 관리 시스템</p>
+              </div>
             </div>
 
             <h2 className="text-4xl font-bold leading-tight mb-4">
               비즈니스 관리의<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-primary-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-blue-400">
                 새로운 기준
               </span>
             </h2>
@@ -58,7 +63,7 @@ export default function Login() {
               {['A', 'B', 'C', 'D'].map((letter, i) => (
                 <div
                   key={letter}
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-sm font-bold border-2 border-[#2a2117]"
+                  className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-sm font-bold border-2 border-[#1e293b]"
                   style={{ zIndex: 4 - i }}
                 >
                   {letter}
@@ -73,15 +78,20 @@ export default function Login() {
       </div>
 
       {/* Right side - Login form */}
-      <div className="flex-1 flex items-center justify-center p-8 bg-gradient-to-br from-stone-50 via-white to-orange-50/30">
+      <div className="flex-1 flex items-center justify-center p-8 bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
         <div className="w-full max-w-md">
           {/* Mobile logo */}
           <div className="lg:hidden text-center mb-10">
-            <h1 className="text-2xl font-bold tracking-[0.15em] text-primary-700">ABYSS</h1>
-            <p className="text-xs tracking-wide text-primary-400 font-medium mt-1">정산 ERP 시스템</p>
+            <div className="inline-flex items-center gap-2 mb-2">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
+                <span className="text-sm font-black text-white">ML</span>
+              </div>
+              <h1 className="text-xl font-bold text-slate-800">마케팅 라운지</h1>
+            </div>
+            <p className="text-xs tracking-wide text-slate-500 font-medium">통합 관리 시스템</p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-soft-lg border border-slate-100 p-8 lg:p-10">
+          <div className="bg-white rounded-3xl shadow-soft-lg border border-slate-200/60 p-8 lg:p-10">
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-slate-900">로그인</h2>
               <p className="text-slate-500 mt-2">계정에 로그인하여 시작하세요</p>
@@ -170,7 +180,7 @@ export default function Login() {
           </div>
 
           <p className="text-center text-sm text-slate-500 mt-8">
-            ERP System v1.0
+            마케팅 라운지 v1.0
           </p>
         </div>
       </div>

@@ -18,6 +18,7 @@
     { "source": "/api/blog-share/:path*", "destination": "/api/blog-share" },
     { "source": "/api/blog/:path*", "destination": "/api/blog" },
     { "source": "/api/inquiries/:path*", "destination": "/api/inquiries" },
+    { "source": "/api/setup-db", "destination": "/api/setup-db" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]
 }
