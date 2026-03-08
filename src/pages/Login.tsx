@@ -58,22 +58,6 @@ export default function Login() {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 mt-8">
-            <div className="flex -space-x-3">
-              {['A', 'B', 'C', 'D'].map((letter, i) => (
-                <div
-                  key={letter}
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-sm font-bold border-2 border-[#1e293b]"
-                  style={{ zIndex: 4 - i }}
-                >
-                  {letter}
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-slate-400">
-              <span className="text-white font-semibold">500+</span> 기업이 사용 중
-            </p>
-          </div>
         </div>
       </div>
 
