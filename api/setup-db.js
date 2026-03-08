@@ -2,8 +2,8 @@ import { query } from './_lib/db.js';
 import bcrypt from 'bcryptjs';
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'POST only' });
+  if (req.method !== 'POST' && req.method !== 'GET') {
+    return res.status(405).json({ error: 'GET or POST only' });
   }
 
   try {
