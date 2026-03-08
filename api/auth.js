@@ -20,8 +20,17 @@ function verifyToken(req) {
 
 async function initTables() {
   await ensureTables('auth_v2', async () => {
-    // employee_id 컬럼 추가 (기존 users 테이블에)
-    await query(`ALTER TABLE users ADD COLUMN IF NOT EXISTS employee_id VARCHAR(255)`);
+    await query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id VARCHAR(255) PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        role VARCHAR(50) DEFAULT 'user',
+        employee_id VARCHAR(255),
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
   });
 }
 
