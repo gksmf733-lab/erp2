@@ -7,9 +7,7 @@ try {
   // WHATWG URL API를 사용하여 연결 문자열 파싱 (url.parse deprecation 경고 방지)
   let dbOptions = {
     ssl: 'require',
-    connection: {
-      options: '-c search_path=public -c client_min_messages=warning'
-    },
+    connection: {},
     onnotice: () => {},
     max: 10,
     idle_timeout: 30,
