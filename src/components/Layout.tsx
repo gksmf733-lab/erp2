@@ -40,7 +40,7 @@ export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-stone-50 via-orange-50/30 to-stone-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/20 to-slate-100">
       {/* Mobile sidebar backdrop */}
       {sidebarOpen && (
         <div
@@ -55,29 +55,34 @@ export default function Layout() {
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* Sidebar background with warm gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#2c2419] via-[#2a2117] to-[#231d14]" />
+        {/* Sidebar background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#131c33] to-[#0c1425]" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
 
         <div className="relative flex h-full flex-col">
           {/* Logo */}
           <div className="flex items-center justify-between px-6 py-5">
-            <Link to="/" className="group">
-              <span className="text-xl font-bold tracking-[0.15em] text-primary-300 group-hover:text-primary-200 transition-colors">ABYSS</span>
-              <span className="block text-[11px] tracking-wide text-primary-400/60 font-medium mt-0.5">정산 ERP 시스템</span>
+            <Link to="/" className="group flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center shadow-lg shadow-primary-500/30">
+                <span className="text-sm font-black text-white">ML</span>
+              </div>
+              <div>
+                <span className="text-base font-bold text-white group-hover:text-primary-300 transition-colors">마케팅 라운지</span>
+                <span className="block text-[10px] tracking-wide text-slate-400 font-medium mt-0.5">통합 관리 시스템</span>
+              </div>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="lg:hidden p-2 rounded-xl text-primary-400/60 hover:text-primary-300 hover:bg-white/10 transition-all"
+              className="lg:hidden p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-all"
             >
               <X className="h-5 w-5" />
             </button>
           </div>
-          <div className="mx-6 border-b border-primary-800/30" />
+          <div className="mx-6 border-b border-slate-700/50" />
 
           {/* Navigation */}
           <nav className="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto scrollbar-hide">
-            <p className="px-3 mb-4 text-xs font-semibold text-primary-600/80 uppercase tracking-wider">
+            <p className="px-3 mb-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">
               메뉴
             </p>
             {navigation.filter(item => item.roles.length === 0 || item.roles.includes(user?.role || '')).map((item) => {
@@ -89,8 +94,8 @@ export default function Layout() {
                   onClick={() => setSidebarOpen(false)}
                   className={`group relative flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200 ${
                     isActive
-                      ? 'bg-primary-500/15 text-primary-200'
-                      : 'text-primary-400/50 hover:text-primary-200 hover:bg-white/5'
+                      ? 'bg-primary-500/15 text-white'
+                      : 'text-slate-400 hover:text-white hover:bg-white/5'
                   }`}
                 >
                   {/* Active indicator */}
@@ -102,10 +107,10 @@ export default function Layout() {
                   <div className={`relative flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-200 ${
                     isActive
                       ? `bg-gradient-to-br ${item.color} shadow-lg`
-                      : 'bg-primary-900/30 group-hover:bg-primary-800/30'
+                      : 'bg-slate-800/50 group-hover:bg-slate-700/50'
                   }`}>
                     <item.icon className={`h-5 w-5 transition-transform duration-200 ${
-                      isActive ? 'text-white scale-110' : 'text-primary-400/50 group-hover:text-primary-300 group-hover:scale-105'
+                      isActive ? 'text-white scale-110' : 'text-slate-400 group-hover:text-slate-200 group-hover:scale-105'
                     }`} />
                   </div>
 
@@ -127,7 +132,7 @@ export default function Layout() {
           </nav>
 
           {/* User info */}
-          <div className="p-4 mx-4 mb-4 bg-primary-900/20 rounded-2xl border border-primary-700/20">
+          <div className="p-4 mx-4 mb-4 bg-slate-800/40 rounded-2xl border border-slate-700/30">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center shadow-lg">
@@ -135,17 +140,17 @@ export default function Layout() {
                     {user?.name?.charAt(0)}
                   </span>
                 </div>
-                <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-[#2a2117]" />
+                <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-[#131c33]" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-primary-200 truncate">{user?.name}</p>
-                <p className="text-xs text-primary-400/50 truncate">
+                <p className="text-sm font-semibold text-white truncate">{user?.name}</p>
+                <p className="text-xs text-slate-400 truncate">
                   {user?.role === 'admin' ? '관리자' : user?.role === 'manager' ? '매니저' : '직원'} · {user?.email}
                 </p>
               </div>
               <button
                 onClick={logout}
-                className="p-2.5 text-primary-400/50 hover:text-primary-300 hover:bg-white/10 rounded-xl transition-all duration-200 group"
+                className="p-2.5 text-slate-400 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-200 group"
                 title="로그아웃"
               >
                 <LogOut className="h-5 w-5 group-hover:scale-110 transition-transform" />
@@ -165,7 +170,12 @@ export default function Layout() {
           >
             <Menu className="h-5 w-5 text-slate-600" />
           </button>
-          <span className="text-lg font-bold tracking-[0.15em] text-primary-700">ABYSS</span>
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
+              <span className="text-[10px] font-black text-white">ML</span>
+            </div>
+            <span className="text-base font-bold text-slate-800">마케팅 라운지</span>
+          </div>
         </header>
 
         {/* Page content */}

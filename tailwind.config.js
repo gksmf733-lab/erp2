@@ -23,17 +23,17 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#faf6f1',
-          100: '#f3ebe0',
-          200: '#e6d5bd',
-          300: '#d6bb96',
-          400: '#c8a474',
-          500: '#b89058',
-          600: '#a47a48',
-          700: '#89633d',
-          800: '#715234',
-          900: '#5d442e',
-          950: '#332418',
+          50: '#eef2ff',
+          100: '#e0e7ff',
+          200: '#c7d2fe',
+          300: '#a5b4fc',
+          400: '#818cf8',
+          500: '#6366f1',
+          600: '#4f46e5',
+          700: '#4338ca',
+          800: '#3730a3',
+          900: '#312e81',
+          950: '#1e1b4b',
         }
       },
       animation: {
@@ -70,8 +70,8 @@ export default {
         'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
         'soft-lg': '0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 2px 10px -2px rgba(0, 0, 0, 0.04)',
         'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)',
-        'glow': '0 0 20px rgba(184, 144, 88, 0.3)',
-        'glow-lg': '0 0 40px rgba(184, 144, 88, 0.4)',
+        'glow': '0 0 20px rgba(99, 102, 241, 0.3)',
+        'glow-lg': '0 0 40px rgba(99, 102, 241, 0.4)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
