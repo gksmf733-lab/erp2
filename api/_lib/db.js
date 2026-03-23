@@ -2,31 +2,19 @@ import postgres from 'postgres';
 
 let sql;
 try {
-  const connectionString = process.env.POSTGRES_URL || '';
-
-  // WHATWG URL API를 사용하여 연결 문자열 파싱 (url.parse deprecation 경고 방지)
-  let dbOptions = {
-    ssl: 'require',
-    connection: {},
-    onnotice: () => {},
-    max: 10,
-    idle_timeout: 30,
-    connect_timeout: 15
-  };
+  const connectionString = process.env.POSTGRES_URL || process.env.DATABASE_URL || '';
 
   if (connectionString) {
-    const url = new URL(connectionString);
-    dbOptions = {
-      host: url.hostname,
-      port: parseInt(url.port) || 5432,
-      database: url.pathname.slice(1),
-      username: decodeURIComponent(url.username),
-      password: decodeURIComponent(url.password),
-      ...dbOptions
-    };
+    sql = postgres(connectionString, {
+      ssl: 'require',
+      max: 10,
+      idle_timeout: 30,
+      connect_timeout: 15,
+      onnotice: () => {},
+    });
+  } else {
+    console.error('No POSTGRES_URL or DATABASE_URL environment variable set');
   }
-
-  sql = postgres(dbOptions);
 } catch (e) {
   console.error('DB connection init error:', e.message);
 }
@@ -34,7 +22,7 @@ try {
 // pg 패키지와 호환되는 query 함수
 export async function query(text, params = []) {
   if (!sql) {
-    throw new Error('Database not configured');
+    throw new Error('Database not configured - check POSTGRES_URL environment variable');
   }
   try {
     const result = await sql.unsafe(text, params);
