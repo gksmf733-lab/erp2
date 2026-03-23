@@ -64,9 +64,12 @@ export interface Order {
   customer_id: string;
   customer_name?: string;
   customer_company?: string;
+  assignee_id?: string;
+  assignee_name?: string;
   total_amount: number;
-  status: 'pending' | 'processing' | 'completed' | 'cancelled';
+  status: 'pending' | 'processing' | 'near_due' | 'completed' | 'cancelled';
   order_date: string;
+  start_date?: string;
   due_date: string;
   notes: string;
   created_at: string;
