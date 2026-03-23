@@ -2,9 +2,19 @@ import postgres from 'postgres';
 
 let sql;
 try {
-  const connectionString = process.env.POSTGRES_URL || process.env.DATABASE_URL || '';
+  let connectionString = process.env.POSTGRES_URL || process.env.DATABASE_URL || '';
 
   if (connectionString) {
+    // postgres.js가 지원하지 않는 파라미터 제거
+    try {
+      const url = new URL(connectionString);
+      url.searchParams.delete('channel_binding');
+      url.searchParams.delete('sslmode');
+      connectionString = url.toString();
+    } catch (e) {
+      // URL 파싱 실패 시 원본 문자열 사용
+    }
+
     sql = postgres(connectionString, {
       ssl: 'require',
       max: 10,
